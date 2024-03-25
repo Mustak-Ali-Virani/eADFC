@@ -16,7 +16,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/pages/Tutorial" element={<Tutorial />} />
-              <Route path="/pages/Checklist" element={<Checklist  tasks={['Buy groceries', 'Finish homework', 'Walk the dog']} />} />
+              <Route path="/pages/Checklist" element={<Checklist  tasks={['Task 1', 'Task 2', 'Task 3']} />} />
               <Route path="/pages/Login" element={<Login />} />
             </Routes>
           
