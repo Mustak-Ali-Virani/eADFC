@@ -8,7 +8,7 @@ const ChecklistItem = ({ text, isChecked, onChange }) => {
 
   return (
     <div className="flex items-center mb-2">
-      <input type="checkbox" checked={isChecked} onChange={handleChange} />
+      <input type="checkbox" checked={isChecked} onChange={handleChange} className="form-checkbox h-5 w-5 text-blue-600" />
       <label className="ml-2 text-gray-700">{text}</label>
     </div>
   );
@@ -17,7 +17,7 @@ const ChecklistItem = ({ text, isChecked, onChange }) => {
 const Checklist = ({ isVisible, onShow, tasks = [] }) => { // Set default value for tasks prop
   const [checklistItems, setChecklistItems] = useState(
     tasks.map((text) => ({ text, isChecked: false }))
-);
+  );
 
 
   // Handle checkbox change for an item
