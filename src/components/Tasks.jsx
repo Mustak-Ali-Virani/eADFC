@@ -60,6 +60,12 @@ const Tasks = ({ type }) => {
               <Remarks placeholder="Remarks" />
             </td>
           </tr>
+          <tr>
+            <td colSpan="5"></td>
+            <td colSpan="2" className='px-6 py-3 text-right'>
+              <button className='px-6 py-3 text-white bg-teal-700'>Submit</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
