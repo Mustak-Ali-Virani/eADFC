@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Task = ({task,status,remarks}) => {
+const Task = ({ task }) => {
   return (
-    <div className='container flex justify-between items-center py-5'>
-      <h1 className='w-[33%]'>{task}</h1>
-      <h1 className='border border-black p-2'>{status}</h1>
-      <h1 className='w-[20%]'>{remarks}</h1>
+    <div className='font-bold'>
+      {task}
     </div>
-  )
+  );
 }
 
-export default Task
+export default Task;
