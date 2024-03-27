@@ -18,7 +18,7 @@ export default function Navbar() {
         <ul className="flex space-x-[100px]">
           <CustomLink to="/" className="text-white">Home</CustomLink>
           <CustomLink to="/pages/Tutorial" className="text-white">Tutorial</CustomLink>
-          <CustomLink to="/pages/Checklist" onClick={handleShowChecklist} className="text-white">Checklist</CustomLink> 
+          <CustomLink to="/pages/Checklist" className="text-white">Checklist</CustomLink> 
           <CustomLink to="/pages/Login" className="text-white">Login</CustomLink>
         </ul>
       </div>
