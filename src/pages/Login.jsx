@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AdminPage from './AdminPage';
+import Checklist from './Checklist';
 
 const Login = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -13,17 +15,28 @@ const Login = () => {
     if (username === 'admin' && password === '123') {
       // Redirect to Admin Page upon successful login
       setLoggedIn(true);
-    } else {
+      setUser('admin');
+    } 
+    else if (username === 'user' && password === '123') {
+      // Redirect to Admin Page upon successful login
+      setLoggedIn(true);
+      setUser('user');
+    }
+    else {
       // Display error message or handle failed login
       alert('Invalid username or password');
     }
   };
 
   if (loggedIn) {
-    // Redirect to Admin Page
-    return (
-      <AdminPage />
-    );
+    // Redirect to Admin Page if user is admin
+    if (user === 'admin') {
+      return <AdminPage />;
+    }
+    // Redirect to Checklist directly if user is another user
+    if (user === 'user') {
+      return <Checklist />;
+    }
   }
 
   return (

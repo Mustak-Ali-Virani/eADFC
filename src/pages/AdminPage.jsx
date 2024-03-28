@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Routes } from 'react-router-dom';
 import GenerateReport from  '../admin/GenerateReport.jsx';
 import ChecklistUpdate from '../admin/ChecklistUpdate';
 import PersonalizedEmail from '../admin/PersonalizedEmail';
@@ -44,10 +44,12 @@ const AdminPage = () => {
         <div className="w-3/4 p-4">
           {/* Routes */}
           <ErrorBoundary>
+           <Routes> 
             <Route path="/admin/generate-report" component={GenerateReport} />
             <Route path="/admin/checklist-update" component={ChecklistUpdate} />
             <Route path="/admin/personalized-email" component={PersonalizedEmail} />
             <Route path="/admin/add-user" component={AddUser} />
+            </Routes> 
           </ErrorBoundary>
         </div>
       </div>
