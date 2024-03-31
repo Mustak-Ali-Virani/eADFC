@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import Checklist from '../pages/Checklist';  
+import Checklist from '../pages/Checklist';
 
 export default function Navbar() {
   const [showChecklist, setShowChecklist] = useState(false);
-
-  const handleShowChecklist = () => {
-    setShowChecklist(!showChecklist);
-  };
 
   return (
     <nav className="bg-custom-green p-4">
@@ -18,11 +14,11 @@ export default function Navbar() {
         <ul className="flex space-x-[100px]">
           <CustomLink to="/" className="text-white">Home</CustomLink>
           <CustomLink to="/pages/Tutorial" className="text-white">Tutorial</CustomLink>
-          <CustomLink to="/pages/Checklist" className="text-white">Checklist</CustomLink> 
-          <CustomLink to="/pages/Login" className="text-white">Login</CustomLink>
+          <CustomLink to="/pages/Checklist" className="text-white">Checklist</CustomLink>
+          {/* <CustomLink to="/pages/Login" className="text-white">Login</CustomLink> */}
         </ul>
       </div>
-      {showChecklist && <Checklist />} 
+      {showChecklist && <Checklist />}
     </nav>
   );
 };

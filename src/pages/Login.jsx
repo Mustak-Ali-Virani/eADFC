@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AdminPage from './AdminPage';
-import Checklist from './Checklist';
+import App from '../App';
 
 const Login = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,7 +35,7 @@ const Login = () => {
     }
     // Redirect to Checklist directly if user is another user
     if (user === 'user') {
-      return <Checklist />;
+      return <App />;
     }
   }
 

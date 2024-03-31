@@ -1,20 +1,21 @@
 import React from 'react';
 import { Route, NavLink, Routes } from 'react-router-dom';
-import GenerateReport from  '../admin/GenerateReport.jsx';
+import GenerateReport from '../admin/GenerateReport.jsx';
 import ChecklistUpdate from '../admin/ChecklistUpdate';
 import PersonalizedEmail from '../admin/PersonalizedEmail';
 import AddUser from '../admin/AddUser';
 import ErrorBoundary from '../components/ErrorBoundary';
+import backgroundImage from '../assets/hblgreen.png';
 
 const AdminPage = () => {
   return (
     <>
+          <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: '75% auto', backgroundPosition: 'right center', height: '100vh' }}>
+
       <div>
         <h1 className='px-6 py-3 bg-teal-700 text-white text-2xl'>Checker</h1>
       </div>
-      {/* Main Content */}
       <div className="flex">
-        {/* Sidebar */}
         <div className="bg-custom-green w-1/4 h-screen">
           <ul className="flex flex-col gap-8 p-4">
             <li key="generate-report" className="hover:bg-white hover:bg-opacity-30">
@@ -40,18 +41,17 @@ const AdminPage = () => {
           </ul>
         </div>
 
-        {/* Main Content */}
         <div className="w-3/4 p-4">
-          {/* Routes */}
           <ErrorBoundary>
-           <Routes> 
-            <Route path="/admin/generate-report" component={GenerateReport} />
-            <Route path="/admin/checklist-update" component={ChecklistUpdate} />
-            <Route path="/admin/personalized-email" component={PersonalizedEmail} />
-            <Route path="/admin/add-user" component={AddUser} />
-            </Routes> 
+            <Routes>
+              <Route path="/admin/generate-report" element={<GenerateReport />} />
+              <Route path="/admin/checklist-update" element={<ChecklistUpdate />} />
+              <Route path="/admin/personalized-email" element={<PersonalizedEmail />} />
+              <Route path="/admin/add-user" element={<AddUser />} />
+            </Routes>
           </ErrorBoundary>
         </div>
+      </div>
       </div>
     </>
   );

@@ -1,5 +1,6 @@
-import { Route, Routes } from "react-router-dom";
-import Navbar from './components/Navbar'; 
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Tutorial from './pages/Tutorial';
 import Checklist from './pages/Checklist';
@@ -8,25 +9,21 @@ import backgroundImage from './assets/hblgreen.png';
 
 function App() {
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
-      <div className="px-auto">
-        <Navbar />
-        <div>
-        
+      <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
+        <div className="px-auto">
+          <div>
+            <Navbar/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/pages/Tutorial" element={<Tutorial />} />
-              <Route path="/pages/Checklist" element={<Checklist  tasks={['Task 1', 'Task 2', 'Task 3']} />} />
+              <Route path="/pages/Checklist" element={<Checklist />} />
               <Route path="/pages/Login/*" element={<Login />} />
             </Routes>
-          
+          </div>
         </div>
       </div>
-      
-    </div>
-
+    
   );
 }
-
 
 export default App;
