@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dropdown from '../components/Dropdown';
-import Checklist from '../pages/Checklist';
+import Tasks from '../components/Tasks';
 
 const departments = ["IT", "Central Ops", "Compliance", "Treasury"];
 
-const ChecklistUpdate = ({ onDepartmentChange, selectedDepartment }) => {
-  const [checklistEntries, setChecklistEntries] = useState([]);
+const ChecklistUpdate = ({ onApproval }) => {
+  const [selectedDepartment, setSelectedDepartment] = React.useState('');
 
   // Function to handle department change
   const handleDepartmentChange = (department) => {
-    onDepartmentChange(department);
+    setSelectedDepartment(department);
+  };
+
+  // Function to handle approval
+  const handleApproval = () => {
+    // Call the onApproval function passed from the parent
+    onApproval();
   };
 
   return (
@@ -19,9 +25,9 @@ const ChecklistUpdate = ({ onDepartmentChange, selectedDepartment }) => {
         <Dropdown options={departments} selectedOption={selectedDepartment} onSelect={handleDepartmentChange} />
       </div>
       <div>
-        <h2 className='text-xl mt-5'>Checklist</h2>
-        <Checklist entries={checklistEntries} setEntries={setChecklistEntries} />
+        <Tasks type={"Daily"} />
       </div>
+      <button onClick={handleApproval}>Approve</button>
     </div>
   );
 };

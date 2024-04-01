@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import Tasks from './components/Tasks';
 import ChecklistUpdate from './admin/ChecklistUpdate';
+import Tasks from './components/Tasks';
 
 const ChecklistUpdater = () => {
-  const [selectedDepartment, setSelectedDepartment] = useState("");
-  const [checklistEntries, setChecklistEntries] = useState([]);
+  const [isApproved, setIsApproved] = useState(false);
 
-  // Function to handle department change
-  const handleDepartmentChange = (department) => {
-    setSelectedDepartment(department);
+  // Function to handle approval
+  const handleApproval = () => {
+    setIsApproved(true);
   };
 
   return (
-    <div>
-      <ChecklistUpdate onDepartmentChange={handleDepartmentChange} selectedDepartment={selectedDepartment} />
-      <Tasks department={selectedDepartment} checklistEntries={checklistEntries} />
-    </div>
+    <>
+      <ChecklistUpdate onApproval={handleApproval} />
+      <Tasks type={"Daily"} isApproved={isApproved} />
+    </>
   );
-};
+}
 
 export default ChecklistUpdater;

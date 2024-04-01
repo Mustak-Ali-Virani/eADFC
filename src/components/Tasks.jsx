@@ -6,6 +6,7 @@ import Remarks from './Remarks';
 const Tasks = ({ type }) => {
   const [currentDate, setCurrentDate] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isApproved, setIsApproved] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -18,8 +19,8 @@ const Tasks = ({ type }) => {
   }, []);
 
   const handleSubmit = () => {
-    // Your submission logic goes here
-    setIsSubmitted(true);
+    // Your approval logic goes here
+    setIsApproved(true);
   };
 
   return (
@@ -35,9 +36,9 @@ const Tasks = ({ type }) => {
         <tbody>
           <tr>
             <td colSpan="6" className='px-6 py-3 text-left'>
-              <div className= "text-left">
+              <div className="text-left">
                 <h1 className='font-bold text-4xl'>Information Technology (IT)</h1>
-                <hr className="border-b-2 border-teal-700 w-full " style={{textAlign: 'left'}} /> 
+                <hr className="border-b-2 border-teal-700 w-full " style={{ textAlign: 'left' }} />
               </div>
             </td>
           </tr>
@@ -78,9 +79,9 @@ const Tasks = ({ type }) => {
             <td colSpan="5"></td>
             <td colSpan="2" className='px-6 py-3 text-right'>
               <button
-                className={`px-6 py-3 text-white bg-teal-700 ${isSubmitted ? 'bg-gray-400 cursor-not-allowed' : ''}`}
+                className={`px-6 py-3 text-white bg-teal-700 ${isSubmitted || isApproved ? 'bg-gray-400 cursor-not-allowed' : ''}`}
                 onClick={handleSubmit}
-                disabled={isSubmitted}
+                disabled={isSubmitted || isApproved}
               >
                 {isSubmitted ? 'Approving...' : 'Submit'}
               </button>
