@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dropdown from '../components/Dropdown';
 import Tasks from '../components/Tasks';
 
 const departments = ["IT", "Central Ops", "Compliance", "Treasury"];
 
 const ChecklistUpdate = ({ onApproval }) => {
-  const [selectedDepartment, setSelectedDepartment] = React.useState('');
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [tasks, setTasks] = useState([]);
 
-  // Function to handle department change
   const handleDepartmentChange = (department) => {
     setSelectedDepartment(department);
   };
 
-  // Function to handle approval
+
+
+  const handleDeleteTask = (taskId) => {
+    const updatedTasks = tasks.filter(task => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
+
   const handleApproval = () => {
-    // Call the onApproval function passed from the parent
     onApproval();
   };
 
@@ -25,9 +30,12 @@ const ChecklistUpdate = ({ onApproval }) => {
         <Dropdown options={departments} selectedOption={selectedDepartment} onSelect={handleDepartmentChange} />
       </div>
       <div>
-        <Tasks type={"Daily"} />
+        <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} isLoggedIn={true} userRole="admin" />
       </div>
-      <button onClick={handleApproval}>Approve</button>
+
+      <div className="flex justify-center mt-8">
+        <button className='px-6 py-3 text-white bg-teal-700 mr-4' onClick={handleApproval}>Approve</button>
+      </div>
     </div>
   );
 };

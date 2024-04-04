@@ -13,6 +13,7 @@ const ChecklistUpdater = () => {
   return (
     <>
       <ChecklistUpdate onApproval={handleApproval} />
+      {/* Assuming this Tasks component is for a different purpose */}
       <Tasks type={"Daily"} isApproved={isApproved} />
     </>
   );
