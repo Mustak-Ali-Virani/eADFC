@@ -8,17 +8,14 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Simulate login logic
-    // Replace this with your actual login logic
+
     const username = e.target.username.value;
     const password = e.target.password.value;
     if (username === 'admin' && password === '123') {
-      // Redirect to Admin Page upon successful login
       setLoggedIn(true);
       setUser('admin');
     } 
     else if (username === 'user' && password === '123') {
-      // Redirect to Admin Page upon successful login
       setLoggedIn(true);
       setUser('user');
     }
@@ -29,11 +26,9 @@ const Login = () => {
   };
 
   if (loggedIn) {
-    // Redirect to Admin Page if user is admin
     if (user === 'admin') {
       return <AdminPage />;
     }
-    // Redirect to Checklist directly if user is another user
     if (user === 'user') {
       return <App />;
     }
