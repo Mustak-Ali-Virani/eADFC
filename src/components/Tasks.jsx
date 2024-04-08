@@ -5,14 +5,21 @@ import Remarks from './Remarks';
 import { TrashIcon } from '@heroicons/react/outline';
 import { PlusCircleIcon } from '@heroicons/react/solid';
 
+<<<<<<< HEAD
 const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
+=======
+const Tasks = ({ isLoggedIn, userRole }) => {
+>>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
   const [newTaskDescription, setNewTaskDescription] = useState('');
+<<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('Daily'); // Default selected option
+=======
+>>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -44,7 +51,10 @@ const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
       };
       setTasks([...tasks, newTask]);
       setNewTaskDescription('');
+<<<<<<< HEAD
       onAddTask(newTaskDescription); // Notify parent component about the new task
+=======
+>>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
     }
   };
 
@@ -77,6 +87,7 @@ const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
           </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
         <tr className='bg-custom-green text-white text-l'>
             <td colSpan='7'>
               <div className="flex justify-center gap-4">
@@ -180,6 +191,60 @@ const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
                 </button>
               </div>
             </td>
+=======
+          {loading ? (
+            <tr>
+              <td colSpan='6' className='px-6 py-3 text-center'>
+                Loading...
+              </td>
+            </tr>
+          ) : (
+            tasks.map((task) => (
+              <tr key={task.id}>
+                <td colSpan='2' className='px-6 py-3'>
+                  <Task task={task.description} />
+                </td>
+                <td colSpan='2' className='px-6 py-3'>
+                  <Status placeholder='Status' />
+                </td>
+                <td colSpan='2' className='px-6 py-3'>
+                  <Remarks placeholder='Remarks' />
+                </td>
+                <td>
+                  {isLoggedIn && userRole === 'admin' && (
+                    <button onClick={() => handleDeleteTask(task.id)}>
+                      <TrashIcon className='h-5 w-5 text-red-500' aria-hidden='true' />
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))
+          )}
+          <tr>
+            <td colSpan='2'>
+              <input
+                type='text'
+                value={newTaskDescription}
+                onChange={(e) => setNewTaskDescription(e.target.value)}
+                placeholder='New Task'
+              />
+            </td>
+            <td colSpan='6' className='px-6 py-3'>
+              <div className="flex justify-between items-center">
+                <button className='flex items-center px-4 py-2' onClick={handleAddTask}>
+                  <PlusCircleIcon className="h-4 w-4 mr-1 text-teal-700" />
+                </button>
+                <button
+                  className={`px-6 py-3 text-white bg-teal-700 ${isSubmitted || isApproved ? 'bg-gray-400 cursor-not-allowed' : ''}`}
+                  onClick={handleSubmit}
+                  disabled={isSubmitted || isApproved}
+                >
+                  {isSubmitted ? 'Approving...' : 'Submit'}
+                </button>
+              </div>
+            </td>
+
+>>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
           </tr>
         </tbody>
       </table>

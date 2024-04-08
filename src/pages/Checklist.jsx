@@ -13,13 +13,10 @@ const Checklist = () => {
   };
 
   return (
-    <div>
-      <Tasks
-        tasks={tasks}
-        onDeleteTask={handleDeleteTask}
-        isLoggedIn={true}
-        userRole="user"
-      />
+    <div className='relative h-screen'>
+      <div className='container flex justify-center items-center'>
+        <Tasks type={"Daily"} isApproved={isApproved} />
+      </div>
     </div>
   );
 }
