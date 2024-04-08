@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import Checklist from '../pages/Checklist';
+import { LogoutIcon } from '@heroicons/react/outline';
 
 export default function Navbar() {
+  const handleLogout = () => {
+    window.location.href = '/login'; 
+  };
   const [showChecklist, setShowChecklist] = useState(false);
 
   return (
@@ -16,6 +20,9 @@ export default function Navbar() {
           <CustomLink to="/pages/Tutorial" className="text-white">Tutorial</CustomLink>
           <CustomLink to="/pages/Checklist" className="text-white">Checklist</CustomLink>
           {/* <CustomLink to="/pages/Login" className="text-white">Login</CustomLink> */}
+          <li className="text-white cursor-pointer hover:text-gray-300" onClick={handleLogout}>
+            <LogoutIcon className="h-6 w-6 inline-block" />
+          </li>
         </ul>
       </div>
       {showChecklist && <Checklist />}
