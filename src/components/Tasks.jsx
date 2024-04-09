@@ -58,7 +58,20 @@ const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
     <div className='container w-full flex justify-center'>
       <table className='border-collapse w-full'>
         <thead>
-        <tr className='bg-custom-green text-white text-l'>
+          <tr>
+            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
+              Tasks - {currentDate}
+            </th>
+            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
+              Status
+            </th>
+            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
+              Remarks
+            </th>
+            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
+            </th>
+          </tr>
+          <tr className='bg-custom-green text-white text-l'>
             <td colSpan='7'>
               <div className="flex justify-center gap-4">
                 <label className="flex items-center">
@@ -99,19 +112,6 @@ const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
                 </label>
               </div>
             </td>
-          </tr>
-          <tr>
-            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
-              Tasks - {currentDate}
-            </th>
-            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
-              Status
-            </th>
-            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
-              Remarks
-            </th>
-            <th className='px-6 py-3 bg-teal-700 text-white text-2xl' colSpan='2'>
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -169,7 +169,7 @@ const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
           <td colSpan='7'>
               <div className='flex justify-end'>
                 <button
-                  className={`px-6 py-3 text-white bg-teal-700 ${isSubmitted || isApproved ? 'bg-gray-400 cursor-not-allowed' : ''}`}
+                  className={`px-6 py-3 mx-3 text-white bg-teal-700 ${isSubmitted || isApproved ? 'bg-gray-400 cursor-not-allowed' : ''}`}
                   onClick={handleSubmit}
                   disabled={isSubmitted || isApproved}
                 >
