@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Dropdown = ({ options }) => {
+const Dropdown = ({ options, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -11,6 +11,7 @@ const Dropdown = ({ options }) => {
   const selectOption = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onSelect(option);
   };
 
   return (
@@ -42,7 +43,7 @@ const Dropdown = ({ options }) => {
 
       {isOpen && (
         <div
-          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"

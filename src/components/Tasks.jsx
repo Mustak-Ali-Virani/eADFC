@@ -5,21 +5,15 @@ import Remarks from './Remarks';
 import { TrashIcon } from '@heroicons/react/outline';
 import { PlusCircleIcon } from '@heroicons/react/solid';
 
-<<<<<<< HEAD
 const Tasks = ({ onAddTask, isLoggedIn, userRole }) => {
-=======
 const Tasks = ({ isLoggedIn, userRole }) => {
->>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
   const [newTaskDescription, setNewTaskDescription] = useState('');
-<<<<<<< HEAD
-  const [selectedOption, setSelectedOption] = useState('Daily'); // Default selected option
-=======
->>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
+  const [selectedOption, setSelectedOption] = useState('Daily');
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -51,10 +45,7 @@ const Tasks = ({ isLoggedIn, userRole }) => {
       };
       setTasks([...tasks, newTask]);
       setNewTaskDescription('');
-<<<<<<< HEAD
-      onAddTask(newTaskDescription); // Notify parent component about the new task
-=======
->>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
+      onAddTask(newTaskDescription);
     }
   };
 
@@ -87,7 +78,6 @@ const Tasks = ({ isLoggedIn, userRole }) => {
           </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
         <tr className='bg-custom-green text-white text-l'>
             <td colSpan='7'>
               <div className="flex justify-center gap-4">
@@ -191,7 +181,7 @@ const Tasks = ({ isLoggedIn, userRole }) => {
                 </button>
               </div>
             </td>
-=======
+            </tr>
           {loading ? (
             <tr>
               <td colSpan='6' className='px-6 py-3 text-center'>
@@ -243,13 +233,11 @@ const Tasks = ({ isLoggedIn, userRole }) => {
                 </button>
               </div>
             </td>
-
->>>>>>> e3912ae3429505dd9b130757f446e26ebde1c9de
           </tr>
         </tbody>
       </table>
     </div>
   );
 };
-
+};
 export default Tasks;
