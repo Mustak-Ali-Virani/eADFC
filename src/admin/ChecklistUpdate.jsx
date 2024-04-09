@@ -8,11 +8,21 @@ const ChecklistUpdate = ({ onApproval }) => {
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [tasks, setTasks] = useState([]);
 
+
   const handleDepartmentChange = (department) => {
     setSelectedDepartment(department);
+    fetchTasks(department);
   };
 
-  // Function to handle approval
+  const fetchTasks = async (department) => {
+    try {
+      const tasksData = []; 
+      setTasks(tasksData);
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+    }
+  };
+
   const handleApproval = () => {
     onApproval();
   };
@@ -24,7 +34,8 @@ const ChecklistUpdate = ({ onApproval }) => {
         <Dropdown options={departments} selectedOption={selectedDepartment} onSelect={handleDepartmentChange} />
       </div>
       <div>
-        <Tasks type={"Daily"} />
+        
+        <Tasks type={"Daily"} department={selectedDepartment} tasks={tasks} onApproval={handleApproval} />
       </div>
     </div>
   );
